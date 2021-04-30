@@ -46,9 +46,9 @@ def pic2pdf(img_dir,Pdf_name):
         pdfbytes = imgdoc.convertToPDF()  # 使用图片创建单页的 PDF
         imgpdf = fitz.open("pdf", pdfbytes)
         doc.insertPDF(imgpdf)  # 将当前页插入文档
-    if os.path.exists(Pdf_name):
-        os.remove(Pdf_name)
-    # doc.save("%s.pdf"%Pdf_name)  # 保存pdf文件
+    if os.path.exists(PdfStorageDirectory+Pdf_name+'.pdf'):
+        os.remove(PdfStorageDirectory+Pdf_name+'.pdf')
+    doc.save(PdfStorageDirectory+"%s.pdf"%Pdf_name)  # 保存pdf文件
     doc.close()
 
 def start(path,name):
